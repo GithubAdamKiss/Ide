@@ -1,0 +1,17 @@
+{
+  "name": "ned_ide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.7"
+  },
+  "dependencies": {
+    "electron-reloader": "^1.2.1"
+  }
+}
