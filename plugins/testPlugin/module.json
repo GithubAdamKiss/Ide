@@ -1,0 +1,6 @@
+{
+    "version":"1.0.0",
+    "name":"test-plugin",
+    "main":"js/main.js",
+    "render":"js/render.js"
+}

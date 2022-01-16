@@ -6,6 +6,10 @@ const fileSys = require('fs');
 
 const path = require('path')
 
+const PluginMainRepository = require('./repository/PluginMainRepository');
+
+
+let repository = null;
 let mainWindow = null;
 let openedFilePath = "";
 
@@ -13,7 +17,7 @@ const createWindow = () =>{
     mainWindow = new BrowserWindow({
         width:1200,
         height: 720,
-        //titleBarStyle: "hidden",
+        titleBarStyle: "hidden",
         webPreferences:{
             preload: path.join(__dirname,'preload.js')
         }
@@ -23,9 +27,20 @@ const createWindow = () =>{
 
 }
 
+const managePlugins = () =>{
+    repository = new PluginMainRepository();
+
+    repository.loadPluginsInPath();
+
+}
+
 
 app.whenReady().then(()=>{
+
+    managePlugins();
+
     createWindow();
+
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
